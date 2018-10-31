@@ -33,7 +33,8 @@ function capitalize(n) {
 }
 
 function handleChat(channel, user, message, self) {
-    const query = 'INSERT INTO dev.messages (id, message, userid, username, posted) VALUES (?, ?, ?, ?, ?)';
+    console.log(user);
+    const query = 'INSERT INTO test.messages (id, message, userid, username, posted) VALUES (?, ?, ?, ?, ?)';
     const params = [
         uuid(),
         message,
