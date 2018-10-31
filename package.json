@@ -1,0 +1,25 @@
+{
+  "name": "kevin",
+  "version": "1.0.0",
+  "description": "todo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keisenb/kevin.git"
+  },
+  "author": "keisenb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/keisenb/kevin/issues"
+  },
+  "homepage": "https://github.com/keisenb/kevin#readme",
+  "dependencies": {
+    "cassandra-driver": "^3.5.0",
+    "fs": "0.0.1-security",
+    "tmi": "^2.0.0",
+    "uuid": "^3.3.2"
+  }
+}

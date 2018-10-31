@@ -1,6 +1,16 @@
-const tmi = require('tmi.js')
 require('dotenv').load();
+const tmi = require('tmi.js')
+const uuid = require('uuid/v1');
+const cassandra = require('cassandra-driver');
+const fs = require('fs');
 
+const ssl_option = {
+  cert : fs.readFileSync("./server.crt"),
+  secureProtocol: 'TLSv1_2_method'
+};
+
+const authProviderLocalCassandra = new cassandra.auth.PlainTextAuthProvider(process.env.CASSANDRA_USERNAME, process.env.CASSANDRA_PASSWORD);
+const cassandraClient = new cassandra.Client({contactPoints: [process.env.CASSANDRA_CONTACT_POINT], authProvider: authProviderLocalCassandra, sslOptions:ssl_option});
 
 var channels = [process.env.CHANNEL_NAME];
 showConnectionNotices = null; // Show messages like "Connected" and "Disconnected"
@@ -23,8 +33,17 @@ function capitalize(n) {
 }
 
 function handleChat(channel, user, message, self) {
-    //todo do something with this
-    console.log(message);
+    const query = 'INSERT INTO dev.messages (id, message, userid, username, posted) VALUES (?, ?, ?, ?, ?)';
+    const params = [
+        uuid(),
+        message,
+        user.id,
+        user.username,
+        new Date()
+    ]
+    cassandraClient.execute(query, params)
+      .then(() => console.log('Success'))
+      .catch(e => console.log('error sending message to cassandra', e));   
 }
 
 function chatNotice(information) {
