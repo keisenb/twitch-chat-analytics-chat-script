@@ -20,7 +20,7 @@
     "cassandra-driver": "^3.5.0",
     "dotenv": "^6.1.0",
     "fs": "0.0.1-security",
-    "tmi": "^2.0.0",
+    "tmi.js": "^1.2.1",
     "uuid": "^3.3.2"
   }
 }
