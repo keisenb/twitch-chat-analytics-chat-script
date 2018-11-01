@@ -76,13 +76,7 @@ client.addListener('join', function (channel, username) {
         if (showConnectionNotices) chatNotice('Joined ' + capitalize(dehash(channel)));
     }
 });
-client.addListener('part', function (channel, username) {
-    var index = joinAccounced.indexOf(channel);
-    if (index > -1) {
-        if (showConnectionNotices) chatNotice('Parted ' + capitalize(dehash(channel)));
-        joinAccounced.splice(joinAccounced.indexOf(channel), 1)
-    }
-});
+
 
 client.addListener('crash', function () {
     chatNotice('Crashed');
