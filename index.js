@@ -33,16 +33,16 @@ function capitalize(n) {
 }
 
 function handleChat(channel, user, message, self) {
-    console.log(user);
-    const query = 'INSERT INTO test.messages (id, message, userid, username, posted) VALUES (?, ?, ?, ?, ?)';
+    var userId = parseInt(user['user-id']);
+    const query = 'INSERT INTO prod.messages (id, message, userid, username, posted) VALUES (?, ?, ?, ?, ?)';
     const params = [
         uuid(),
         message,
-        user.id,
+        userId,
         user.username,
         new Date()
     ]
-    cassandraClient.execute(query, params)
+    cassandraClient.execute(query, params, { prepare : true })
       .then(() => console.log('Success'))
       .catch(e => console.log('error sending message to cassandra', e));   
 }
