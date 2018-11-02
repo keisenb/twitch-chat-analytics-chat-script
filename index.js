@@ -22,6 +22,8 @@ const mongoClient = new MongoClient(process.env.MONGO, { useNewUrlParser: true }
 (async function () {
     await mongoClient.connect();
     console.log("Connected correctly to mongo server");
+    client.connect();
+    console.log("connecting to twitchchat");
   })();
 
 var channels = [process.env.CHANNEL_NAME];
@@ -92,4 +94,3 @@ client.addListener('crash', function () {
     log.Error('Twitch chat crashed');
 });
 
-client.connect();
