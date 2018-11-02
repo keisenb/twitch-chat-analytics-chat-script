@@ -48,6 +48,7 @@ async function handleChat(channel, user, message, self) {
 
       } catch (err) {
         console.log(err.stack);
+        log.Error(err);
       }
 }
 
