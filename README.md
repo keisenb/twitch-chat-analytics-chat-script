@@ -1,11 +1,3 @@
-# kevin
-todo
+# twitch-chat-analytics
 
-
-
-
-
-## To generate a key
-
-`openssl req -newkey rsa:2048 -new -nodes -keyout key.pem -out csr.pem`
-`openssl x509 -req -days 365 -in csr.pem -signkey key.pem -out server.crt`
+## A script that listens to twitch chat and stores them in a MongoDB database
