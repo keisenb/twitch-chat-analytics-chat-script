@@ -1,5 +1,5 @@
 {
-  "name": "kevin",
+  "name": "twitch-chat-analytics",
   "version": "1.0.0",
   "description": "todo",
   "main": "index.js",
@@ -8,18 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/keisenb/kevin.git"
+    "url": "git+https://github.com/keisenb/twitch-chat-analytics"
   },
   "author": "keisenb",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/keisenb/kevin/issues"
+    "url": "https://github.com/keisenb/twitch-chat-analytics/issues"
   },
-  "homepage": "https://github.com/keisenb/kevin#readme",
+  "homepage": "https://github.com/keisenb/twitch-chat-analytics#readme",
   "dependencies": {
     "dotenv": "^6.1.0",
     "mongodb": "^3.1.8",
     "node-file-logger": "^0.9.5",
-    "tmi.js": "^1.2.1"
+    "tmi.js": "file:../tmi.js/tmi.js-1.2.1.tgz"
   }
 }
